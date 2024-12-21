@@ -29,11 +29,18 @@ const uppercaseOf = function (strings) {
   return strings.map(convertToUppercase);
 };
 
-console.log(uppercaseOf(["hello", "world"]));
+// console.log(uppercaseOf(["hello", "world"]));
 
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
-const firstCharactersOf = function (strings) { };
+const firstChar = function (string) {
+  return string.at(0);
+}
 
+const firstCharactersOf = function (strings) { 
+  strings.map(firstChar);
+};
+
+console.log(firstCharactersOf["apple", "banana", "kiwi"]);
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
 const truthValuesOf = function (numbers) { };
