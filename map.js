@@ -32,18 +32,27 @@ const uppercaseOf = function (strings) {
 // console.log(uppercaseOf(["hello", "world"]));
 
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
-const firstChar = function (string) {
+const extractfirstChar = function (string) {
   return string.at(0);
-}
-
-const firstCharactersOf = function (strings) { 
-  strings.map(firstChar);
 };
 
-console.log(firstCharactersOf["apple", "banana", "kiwi"]);
+const firstCharactersOf = function (strings) {
+  strings.map(extractfirstChar);
+};
+
+// console.log(firstCharactersOf["apple", "banana", "kiwi"]);
+
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
-const truthValuesOf = function (numbers) { };
+const evaluateTruthValue = function (number) {
+  return number !== 0;
+};
+
+const truthValuesOf = function (numbers) {
+  return numbers.map(evaluateTruthValue);
+};
+
+console.log(truthValuesOf([0, 1, 2, 3]));
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
 const reversedStringsOf = function (strings) { };
