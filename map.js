@@ -40,7 +40,7 @@ const firstCharactersOf = function (strings) {
   return strings.map(extractfirstChar);
 };
 
-console.log(firstCharactersOf(["apple", "banana", "kiwi"]));
+// console.log(firstCharactersOf(["apple", "banana", "kiwi"]));
 
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
@@ -55,17 +55,47 @@ const truthValuesOf = function (numbers) {
 // console.log(truthValuesOf([0, 1, 2, 3]));
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = function (strings) { };
+const reverse = function (string) {
+  return [...string].reverse().join("");
+};
 
-// double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
-const doubleLettersOf = function (strings) { };
+const reversedStringsOf = function (strings) {
+  return strings.map(reverse);
+};
+
+// console.log(reversedStringsOf(["hello", "world"]));
+
+// double letters of ["cat", "dog", "bat"] => ["ccaatt", "ddoogg", "bbaatt"]
+const doubleLetter = function (char) {
+  return char.repeat(2);
+};
+
+const createDoubleLetteredStr = function (string) {
+  return [...string].map(doubleLetter).join("");
+};
+
+const doubleLettersOf = function (strings) {
+  return strings.map(createDoubleLetteredStr);
+};
+
+console.log(doubleLettersOf(["cat", "dog", "bat"]));
 
 // boolean negation of [true, false, true] => [false, true, false]
-const negatedBooleansOf = function (booleans) { };
+const invert = function (boolean) {
+  return !boolean;
+};
+
+const negatedBooleansOf = function (booleans) {
+  return booleans.map(invert);
+};
+
+// console.log(negatedBooleansOf([true, false, true]));
 
 // character codes of ["a", "b", "c"] => [97, 98, 99]
 // Use the `charCodeAt` method on each string
-const charCodesOf = function (strings) { };
+const charCodesOf = function (strings) {
+  // return [...strings].map(charCode);
+};
 
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 const domainNamesOf = function (emails) { };
