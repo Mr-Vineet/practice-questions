@@ -101,11 +101,12 @@ const charCodesOf = function (strings) {
   return strings.map(acquireCharCode);
 };
 
-console.log(charCodesOf(["a", "b", "c"]));
+// console.log(charCodesOf(["a", "b", "c"]));
 
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 const extractDomainName = function (email) {
   const domainName = email.split("@").at(-1);
+  console.log(domainName);
 
   return domainName;
 };
@@ -114,10 +115,18 @@ const domainNamesOf = function (emails) {
   return emails.map(extractDomainName);
 };
 
-console.log(domainNamesOf(["user1@gmail.com", "admin@yahoo.com", "vineet.jain1@thoughtworks.com"]));
+// console.log(domainNamesOf(["user1@gmail.com", "admin@yahoo.com", "vineet.jain1@thoughtworks.com"]));
 
 // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
-const splitWordsOf = function (strings) { };
+const splitWords = function (string) {
+  return string.split(" ");
+};
+
+const splitWordsOf = function (strings) {
+  return strings.map(splitWords);
+};
+
+console.log(splitWordsOf(["hello world", "goodbye moon"]));
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
 const joinedArraysOf = function (arrayOfArrays) { };
