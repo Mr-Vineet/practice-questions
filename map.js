@@ -146,14 +146,26 @@ const repeatedStringsOf = function (strings) {
 // console.log(repeatedStringsOf(["hi", "bye"]));
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
-
 const countVowels = function (string) {
-  
+  const vowels = "aeiouAEIOU";
+  const charArray = string.split("");
+  let count = 0;
+
+  for (const char of charArray) {
+    if (vowels.includes(char)) {
+      count += 1;
+    }
+  }
+
+  return count;
 };
 
 const countVowelsOf = function (strings) {
-  strings.map(countVowels);
+  return strings.map(countVowels);
 };
+
+console.log(countVowelsOf((["apple", "banana", "grape"])));
+console.log(countVowelsOf((["ppl", "banana", "grp"])));
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
 const acquireReversedArray = function (array) {
@@ -165,10 +177,16 @@ const reversedArraysOf = function (arrays) {
   return arrays.map(acquireReversedArray);
 };
 
-console.log(reversedArraysOf([[1, 2, 3], [4, 5, 6]]));
+// console.log(reversedArraysOf([[1, 2, 3], [4, 5, 6]]));
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
-const withoutVowelsOf = function (strings) { };
+// const removeVowels = function (string) {
+//   string.split("")
+// };
+
+const withoutVowelsOf = function (strings) {
+  strings.map(removeVowels);
+};
 
 // cumulative sums of [[1, 2, 3], [4, 5, 6]] => [[1, 3, 6], [4, 9, 15]]
 // Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
