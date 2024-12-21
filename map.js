@@ -66,12 +66,12 @@ const reversedStringsOf = function (strings) {
 // console.log(reversedStringsOf(["hello", "world"]));
 
 // double letters of ["cat", "dog", "bat"] => ["ccaatt", "ddoogg", "bbaatt"]
-const doubleLetter = function (char) {
+const double = function (char) {
   return char.repeat(2);
 };
 
 const createDoubleLetteredStr = function (string) {
-  return [...string].map(doubleLetter).join("");
+  return [...string].map(double).join("");
 };
 
 const doubleLettersOf = function (strings) {
@@ -106,7 +106,6 @@ const charCodesOf = function (strings) {
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 const extractDomainName = function (email) {
   const domainName = email.split("@").at(-1);
-  console.log(domainName);
 
   return domainName;
 };
@@ -137,10 +136,14 @@ const joinedArraysOf = function (arrayOfArrays) {
   return arrayOfArrays.map(joinArray);
 };
 
-console.log(joinedArraysOf([["a", "b"], ["c", "d"]]));
+// console.log(joinedArraysOf([["a", "b"], ["c", "d"]]));
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
-const repeatedStringsOf = function (strings) { };
+const repeatedStringsOf = function (strings) {
+  return strings.map(double);
+};
+
+console.log(repeatedStringsOf(["hi", "bye"]));
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
 const countVowelsOf = function (strings) { };
