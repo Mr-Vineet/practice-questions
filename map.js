@@ -55,12 +55,12 @@ const truthValuesOf = function (numbers) {
 // console.log(truthValuesOf([0, 1, 2, 3]));
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reverse = function (string) {
+const acquireReverseStr = function (string) {
   return [...string].reverse().join("");
 };
 
 const reversedStringsOf = function (strings) {
-  return strings.map(reverse);
+  return strings.map(acquireReverseStr);
 };
 
 // console.log(reversedStringsOf(["hello", "world"]));
@@ -143,13 +143,29 @@ const repeatedStringsOf = function (strings) {
   return strings.map(double);
 };
 
-console.log(repeatedStringsOf(["hi", "bye"]));
+// console.log(repeatedStringsOf(["hi", "bye"]));
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
-const countVowelsOf = function (strings) { };
+
+const countVowels = function (string) {
+  
+};
+
+const countVowelsOf = function (strings) {
+  strings.map(countVowels);
+};
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
-const reversedArraysOf = function (arrays) { };
+const acquireReversedArray = function (array) {
+  const referenceArray = [...array];
+  return referenceArray.reverse();
+};
+
+const reversedArraysOf = function (arrays) {
+  return arrays.map(acquireReversedArray);
+};
+
+console.log(reversedArraysOf([[1, 2, 3], [4, 5, 6]]));
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
 const withoutVowelsOf = function (strings) { };
