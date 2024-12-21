@@ -126,10 +126,18 @@ const splitWordsOf = function (strings) {
   return strings.map(splitWords);
 };
 
-console.log(splitWordsOf(["hello world", "goodbye moon"]));
+// console.log(splitWordsOf(["hello world", "goodbye moon"]));
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
-const joinedArraysOf = function (arrayOfArrays) { };
+const joinArray = function (array) {
+  return array.join("");
+};
+
+const joinedArraysOf = function (arrayOfArrays) {
+  return arrayOfArrays.map(joinArray);
+};
+
+console.log(joinedArraysOf([["a", "b"], ["c", "d"]]));
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
 const repeatedStringsOf = function (strings) { };
