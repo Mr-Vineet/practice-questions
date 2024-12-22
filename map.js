@@ -272,17 +272,17 @@ const capitalizedFirstLettersOf = function (strings) {
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
 const calculateWordLength = function (word) {
   return word.length;
-}
+};
 
 const acquireLength = function (string) {
   return string.split(" ").map(calculateWordLength);
-}
+};
 
 const wordLengthsOf = function (strings) {
   return strings.map(acquireLength);
 };
 
-console.log(wordLengthsOf(["apple pie", "banana split"]));
+// console.log(wordLengthsOf(["apple pie", "banana split"]));
 
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
 const removeNesting = function (array) {
@@ -296,7 +296,15 @@ const flattenedArraysOf = function (arrays) {
 // console.log(flattenedArraysOf([[1, [2, 3]], [4, [5, 6]]]));
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
-const sortedLettersOf = function (strings) { };
+const sort = function (word) {
+  return [...word].sort().join("");
+};
+
+const sortedLettersOf = function (strings) {
+  return strings.map(sort);
+};
+
+console.log(sortedLettersOf(["cat", "bat", "rat"]));
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrappedStringsOf = function (strings) { };
