@@ -359,11 +359,21 @@ const calculateAreas = function (rectangles) {
   return rectangles.map(findArea);
 };
 
-console.log(calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]));
+// console.log(calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]));
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
-const extractFlags = function (objects) { };
 
+const flag = function (object) {
+  return object.active;
+};
+
+const extractFlags = function (objects) {
+  return objects.map(flag);
+};
+
+console.log(extractFlags([{ active: true }, { active: false }]));
+
+//============================= 30 Qs =======================================//
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
 const fullNames = function (objects) { };
 
