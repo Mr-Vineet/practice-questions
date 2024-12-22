@@ -308,17 +308,25 @@ const sortedLettersOf = function (strings) {
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrapWords = function (word) {
-  return "[" + word + "]"; 
-}
+  return "[" + word + "]";
+};
 
 const wrappedStringsOf = function (strings) {
   return strings.map(wrapWords);
- };
+};
 
-console.log(wrappedStringsOf(["apple", "banana"]));
+// console.log(wrappedStringsOf(["apple", "banana"]));
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
-const extractNames = function (objects) { };
+const names = function (objects) {
+  return objects.name;
+};
+
+const extractNames = function (objects) {
+  return objects.map(names);
+};
+
+console.log(extractNames([{ name: "Alice" }, { name: "Bob" }]));
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
 const extractAges = function (objects) { };
