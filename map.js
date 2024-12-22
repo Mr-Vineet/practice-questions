@@ -237,9 +237,15 @@ const capitalizedFirstLettersOf = function (strings) { };
 const wordLengthsOf = function (strings) { };
 
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
-const flattenedArraysOf = function (arrays) {
-
+const removeNesting = function (array) {
+  return array.flat();
 };
+
+const flattenedArraysOf = function (arrays) {
+  return arrays.map(removeNesting);
+};
+
+console.log(flattenedArraysOf([[1, [2, 3]], [4, [5, 6]]]));
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
 const sortedLettersOf = function (strings) { };
