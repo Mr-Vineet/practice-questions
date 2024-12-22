@@ -1,3 +1,9 @@
+const stringFilter = function (string, predicate) {
+  return string.split('').filter(predicate).join('');
+};
+
+//============================ abstraction for strings =====================//
+
 // even numbers [1, 2, 3, 4, 5] => [2, 4]
 const filterEvenNumbers = function (numbers) {
   return numbers.filter(function (number) {
@@ -78,17 +84,33 @@ const filterInStockProducts = function (products) {
   });
 };
 
-console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
+// console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
 
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
+const isOrderPlacedWithin30Days = function (order) {
+  const currentDate = "2024-12-22".split("-");
+  const orderDate = order.orderDate.split("-");
+
+  const isYearSame = orderDate[0] === currentDate[0];
+  const isDateInRangeForSameMonth =
+    (+orderDate[1] === +currentDate[1]) && (+orderDate[2] <= +currentDate[2]);
+  const isDateInRangeForPrevMonth = (+orderDate[1] + 1 === +currentDate[1]) && (+orderDate[2] === +currentDate[2] + 1);
+
+  return isYearSame && (isDateInRangeForSameMonth || isDateInRangeForPrevMonth);
+};
+
 const filterRecentOrders = function (orders) {
-  
- };
+  return orders.filter(isOrderPlacedWithin30Days);
+};
+
+console.log(filterRecentOrders([{ orderDate: "2024-11-01" }, { orderDate: "2024-11-23" }, { orderDate: "2024-12-01" }]));
 
 //============================= 10 Qs =======================================//
 
 // products with a price lower than the average [{name: "item1", price: 10}, {name: "item2", price: 20}, {name: "item3", price: 5}] => [{name: "item1", price: 10}, {name: "item3", price: 5}]
-const filterBelowAveragePrice = function (products) { };
+const filterBelowAveragePrice = function (products) {
+
+};
 
 // active users who posted in the last 7 days [{username: "alice", lastPostDate: "2024-12-01", active: true}, {username: "bob", lastPostDate: "2024-11-20", active: true}] => [{username: "alice", lastPostDate: "2024-12-01", active: true}]
 const filterRecentActiveUsers = function (users) { };

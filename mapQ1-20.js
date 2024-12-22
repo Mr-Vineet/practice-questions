@@ -1,3 +1,7 @@
+const stringMap = function (string, mapper) {
+  return string.split('').map(mapper).join('');
+};
+
 // squares of [1, 2, 3] => [1, 4, 9]
 const square = function (number) {
   return Math.pow(number, 2);
