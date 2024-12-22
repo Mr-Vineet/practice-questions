@@ -113,6 +113,7 @@ const extractDomainName = function (email) {
 const domainNamesOf = function (emails) {
   return emails.map(extractDomainName);
 };
+//==== ========================= 10 Qs =======================================//
 
 // console.log(domainNamesOf(["user1@gmail.com", "admin@yahoo.com", "vineet.jain1@thoughtworks.com"]));
 
@@ -157,9 +158,7 @@ const incrementIfVowelPresent = function (count, char) {
 };
 
 const countVowels = function (string) {
-  const charArray = [...string];
-
-  return charArray.reduce(incrementIfVowelPresent, 0);
+  return [...string].reduce(incrementIfVowelPresent, 0);
 };
 
 const countVowelsOf = function (strings) {
@@ -171,9 +170,7 @@ const countVowelsOf = function (strings) {
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
 const acquireReversedArray = function (array) {
-  const referenceArray = [...array];
-
-  return referenceArray.reverse();
+  return [...array].reverse();
 };
 
 const reversedArraysOf = function (arrays) {
@@ -230,8 +227,9 @@ const reversedWordsOf = function (strings) {
 
 // extract unique characters from ["apple", "banana", "grape"] => ["aple", "ban", "grape"]
 // Maintain the order of their first appearance in each string
+
 const removeDuplicates = function (string) {
-  // [...string].
+
 };
 
 const uniqueCharactersOf = function (strings) {
@@ -247,18 +245,44 @@ const generateRange = function (end) {
   }
 
   return numbers;
-}
+};
 
 const rangesOf = function (numbers) {
   return numbers.map(generateRange);
 };
 
-console.log(rangesOf([3, 5, 2]))
+// console.log(rangesOf([3, 5, 2]))
+
+//============================= 20 Qs =======================================//
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
-const capitalizedFirstLettersOf = function (strings) { };
+const uppercaseFirstLetter = function (word) {
+  return word.at(0).toUpperCase().concat(word.slice(1));
+};
+
+const captalizeFirstLetter = function (string) {
+  return string.split(" ").map(uppercaseFirstLetter).join(" ");
+};
+
+const capitalizedFirstLettersOf = function (strings) {
+  return strings.map(captalizeFirstLetter);
+};
+
+// console.log(capitalizedFirstLettersOf(["hello world", "goodbye moon"]));
 
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
-const wordLengthsOf = function (strings) { };
+const calculateWordLength = function (word) {
+  return word.length;
+}
+
+const acquireLength = function (string) {
+  return string.split(" ").map(calculateWordLength);
+}
+
+const wordLengthsOf = function (strings) {
+  return strings.map(acquireLength);
+};
+
+console.log(wordLengthsOf(["apple pie", "banana split"]));
 
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
 const removeNesting = function (array) {
