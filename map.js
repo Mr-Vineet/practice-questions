@@ -318,18 +318,26 @@ const wrappedStringsOf = function (strings) {
 // console.log(wrappedStringsOf(["apple", "banana"]));
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
-const names = function (objects) {
-  return objects.name;
+const acquireName = function (object) {
+  return object.name;
 };
 
 const extractNames = function (objects) {
-  return objects.map(names);
+  return objects.map(acquireName);
 };
 
-console.log(extractNames([{ name: "Alice" }, { name: "Bob" }]));
+// console.log(extractNames([{ name: "Alice" }, { name: "Bob" }]));
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
-const extractAges = function (objects) { };
+const acquireAge = function (object) {
+  return object.age;
+};
+
+const extractAges = function (objects) {
+  return objects.map(acquireAge);
+};
+
+console.log(extractAges([{ age: 25 }, { age: 30 }]));
 
 // extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
 const firstLettersOfNames = function (objects) { };
