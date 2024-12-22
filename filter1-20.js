@@ -88,15 +88,7 @@ const filterInStockProducts = function (products) {
 
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
 const isOrderPlacedWithin30Days = function (order) {
-  const currentDate = "2024-12-22".split("-");
-  const orderDate = order.orderDate.split("-");
-
-  const isYearSame = orderDate[0] === currentDate[0];
-  const isDateInRangeForSameMonth =
-    (+orderDate[1] === +currentDate[1]) && (+orderDate[2] <= +currentDate[2]);
-  const isDateInRangeForPrevMonth = (+orderDate[1] + 1 === +currentDate[1]) && (+orderDate[2] === +currentDate[2] + 1);
-
-  return isYearSame && (isDateInRangeForSameMonth || isDateInRangeForPrevMonth);
+  
 };
 
 const filterRecentOrders = function (orders) {
