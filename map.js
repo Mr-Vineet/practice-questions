@@ -213,7 +213,7 @@ const cumulativeSumsOf = function (arrays) {
   return arrays.map(evaluateRunningSum);
 };
 
-console.log(cumulativeSumsOf([[1, 2, 3], [4, 5, 6]]));
+// console.log(cumulativeSumsOf([[1, 2, 3], [4, 5, 6]]));
 
 // reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
 const reverseWords = function (string) {
@@ -231,16 +231,29 @@ const reversedWordsOf = function (strings) {
 // extract unique characters from ["apple", "banana", "grape"] => ["aple", "ban", "grape"]
 // Maintain the order of their first appearance in each string
 const removeDuplicates = function (string) {
-  [...string].
+  // [...string].
 };
 
 const uniqueCharactersOf = function (strings) {
-  strings.map(removeDuplicates);
+  return strings.map(removeDuplicates);
 };
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) { };
+const generateRange = function (end) {
+  const numbers = [];
 
+  for (let index = 0; index < end; index++) {
+    numbers.push(index);
+  }
+
+  return numbers;
+}
+
+const rangesOf = function (numbers) {
+  return numbers.map(generateRange);
+};
+
+console.log(rangesOf([3, 5, 2]))
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
 const capitalizedFirstLettersOf = function (strings) { };
 
