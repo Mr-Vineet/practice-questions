@@ -304,10 +304,18 @@ const sortedLettersOf = function (strings) {
   return strings.map(sort);
 };
 
-console.log(sortedLettersOf(["cat", "bat", "rat"]));
+// console.log(sortedLettersOf(["cat", "bat", "rat"]));
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
-const wrappedStringsOf = function (strings) { };
+const wrapWords = function (word) {
+  return "[" + word + "]"; 
+}
+
+const wrappedStringsOf = function (strings) {
+  return strings.map(wrapWords);
+ };
+
+console.log(wrappedStringsOf(["apple", "banana"]));
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
 const extractNames = function (objects) { };
