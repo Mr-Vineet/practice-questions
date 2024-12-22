@@ -2,6 +2,7 @@
 const isEven = function (number) {
   return (number & 1) === 0;
 };
+
 const filterEvenNumbers = function (numbers) {
   return numbers.filter(isEven);
 };
@@ -17,13 +18,27 @@ const filterLongWords = function (words) {
   return words.filter(hasMoreThan5Letters);
 };
 
-console.log(filterLongWords(["apple", "banana", "kiwi", "grape"]));
+// console.log(filterLongWords(["apple", "banana", "kiwi", "grape"]));
 
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
-const filterAdults = function (people) { };
+const isAgeAbove30 = function (person) {
+  return person.age > 30;
+};
+
+const filterAdults = function (people) {
+  return people.filter(isAgeAbove30);
+};
+
+// console.log(filterAdults([{name: "Alice", age: 25}, {name: "Bob", age: 35}]));
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
-const filterActiveUsers = function (users) { };
+const isActive = function (user) {
+  
+}
+
+const filterActiveUsers = function (users) {
+  return users.filter(isActive);
+ };
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 const filterNumbersGreaterThanTen = function (numbers) { };
