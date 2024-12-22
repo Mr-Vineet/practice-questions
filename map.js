@@ -153,7 +153,6 @@ const isVowelPresent = function (char) {
 };
 
 const incrementIfVowelPresent = function (count, char) {
-
   return isVowelPresent(char) ? count + 1 : count;
 };
 
@@ -167,12 +166,13 @@ const countVowelsOf = function (strings) {
   return strings.map(countVowels);
 };
 
-console.log(countVowelsOf((["apple", "banana", "grape"])));
-console.log(countVowelsOf((["ppl", "banana", "grp"])));
+// console.log(countVowelsOf((["apple", "banana", "grape"])));
+// console.log(countVowelsOf((["ppl", "banana", "grp"])));
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
 const acquireReversedArray = function (array) {
   const referenceArray = [...array];
+
   return referenceArray.reverse();
 };
 
@@ -199,12 +199,23 @@ const withoutVowelsOf = function (strings) {
 
 // cumulative sums of [[1, 2, 3], [4, 5, 6]] => [[1, 3, 6], [4, 9, 15]]
 // Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
-const cumulativeSumsOf = function (arrays) {
+const evaluateRunningSum = function (array) {
+  let sum = 0;
 
+  return array.map(function (element) {
+    sum += element;
+
+    return sum;
+  });
 };
 
-// reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
+const cumulativeSumsOf = function (arrays) {
+  return arrays.map(evaluateRunningSum);
+};
 
+console.log(cumulativeSumsOf([[1, 2, 3], [4, 5, 6]]));
+
+// reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
 const reverseWords = function (string) {
   const reversedWords = string.split(" ").map(acquireReverseStr);
 
@@ -217,14 +228,14 @@ const reversedWordsOf = function (strings) {
 
 // console.log(reversedWordsOf(["hello world", "goodbye moon"]));
 
-// extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
+// extract unique characters from ["apple", "banana", "grape"] => ["aple", "ban", "grape"]
 // Maintain the order of their first appearance in each string
 const removeDuplicates = function (string) {
-  // [...string].
+  [...string].
 };
 
 const uniqueCharactersOf = function (strings) {
-
+  strings.map(removeDuplicates);
 };
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
@@ -245,7 +256,7 @@ const flattenedArraysOf = function (arrays) {
   return arrays.map(removeNesting);
 };
 
-console.log(flattenedArraysOf([[1, [2, 3]], [4, [5, 6]]]));
+// console.log(flattenedArraysOf([[1, [2, 3]], [4, [5, 6]]]));
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
 const sortedLettersOf = function (strings) { };
