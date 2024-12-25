@@ -5,8 +5,10 @@ const stringMap = function (string, mapper) {
 // -------------------------------------------------------------------------
 
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
-const uppercaseFirstLetter = function (word) {
-  return word.at(0).toUpperCase().concat(word.slice(1));
+const uppercaseFirstLetter = function ([...word]) {
+  const [firstChar, ...otherChars] = word;
+
+  return firstChar.toUpperCase() + otherChars.join("");
 };
 
 const captalizeFirstLetter = function (string) {
@@ -17,7 +19,10 @@ const capitalizedFirstLettersOf = function (strings) {
   return strings.map(captalizeFirstLetter);
 };
 
-// console.log(capitalizedFirstLettersOf(["hello world", "goodbye moon"]));
+console.log(
+  "capitalize first char",
+  capitalizedFirstLettersOf(["hello world", "goodbye moon"])
+);
 
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
 const calculateWordLength = function (word) {
@@ -237,6 +242,9 @@ display(
   ])
 );
 // split full names into first and last names from [{ name: "Alice Smith" }, { name: "Bob Brown" }] => [["Alice", "Smith"], ["Bob", "Brown"]]
-const splitFullNames = function (objects) {};
+const splitFullNames = function (objects) {
+  return objects.map((person) => person.name.split(" "));
+};
 
+display(splitFullNames([{ name: "Alice Smith" }, { name: "Bob Brown" }]));
 //============================= 40 Qs =======================================//
