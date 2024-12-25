@@ -1,5 +1,5 @@
 const stringMap = function (string, mapper) {
-  return string.split('').map(mapper).join('');
+  return string.split("").map(mapper).join("");
 };
 
 // squares of [1, 2, 3] => [1, 4, 9]
@@ -158,7 +158,7 @@ const isVowelPresent = function (char) {
 };
 
 const incrementIfVowelPresent = function (count, char) {
-  return isVowelPresent(char) ? count + 1 : count;
+  return isVowel(char) ? count + 1 : count;
 };
 
 const countVowels = function (string) {
@@ -185,7 +185,7 @@ const reversedArraysOf = function (arrays) {
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
 const sliceOutVowels = function (char) {
-  return isVowelPresent(char) ? "" : char;
+  return isVowel(char) ? "" : char;
 };
 
 const removeVowels = function (string) {
@@ -232,13 +232,23 @@ const reversedWordsOf = function (strings) {
 // extract unique characters from ["apple", "banana", "grape"] => ["aple", "ban", "grape"]
 // Maintain the order of their first appearance in each string
 
-const removeDuplicates = function (string) {
+const removeDuplicates = function ([...array]) {
+  const uniqueChars = array.reduce(function (set, char) {
+    if (set.includes(char)) {
+      return set;
+    }
 
+    return [...set, char];
+  }, []);
+
+  return uniqueChars.join("");
 };
 
 const uniqueCharactersOf = function (strings) {
   return strings.map(removeDuplicates);
 };
+
+console.log(uniqueCharactersOf(["apple", "banana", "grape"]));
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
 const generateRange = function (end) {
