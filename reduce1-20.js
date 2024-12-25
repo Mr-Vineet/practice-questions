@@ -103,7 +103,9 @@ const findSumOfEvenSquares = function (numbers) {
 // concatenateWords(["hello", "world"]) => "helloworld"
 const concatenateWords = function (words) {
   return words.reduce(
-    (concatenatedWord, word) => concatenatedWord.concat(word), "");
+    (concatenatedWord, word) => concatenatedWord.concat(word),
+    ""
+  );
 };
 
 // console.log(concatenateWords(["hello", "world"]));
@@ -111,15 +113,18 @@ const concatenateWords = function (words) {
 // longestWord(["apple", "banana", "cherry", "kiwi"]) => "banana"
 const longestWord = function (words) {
   return words.reduce(
-    (longest, word) => longest.length < word.length ? word : longest, "");
+    (longest, word) => (longest.length < word.length ? word : longest),
+    ""
+  );
 };
 
 // console.log(longestWord(["apple", "banana", "cherry", "leechi", "kiwi"]));
 
 // shortestWord(["apple", "banana", "cherry", "kiwi"]) => "kiwi"
 const shortestWord = function (words) {
-  return words.reduce(
-    (shortest, word) => shortest.length > word.length ? word : shortest);
+  return words.reduce((shortest, word) =>
+    shortest.length > word.length ? word : shortest
+  );
 };
 
 // console.log(shortestWord(["apple", "banana", "cherry", "kiwi"]));
@@ -134,19 +139,25 @@ const joinWithComma = function (words) {
 // reverseWords(["hello", "world"]) => "world hello";
 const reverseWords = function (words) {
   const [firstWord, ...rest] = words;
-  const reversedWords = rest.reduce((reversedStr, word) => word + " " + reversedStr, "");
+  const reversedWords = rest.reduce(
+    (reversedStr, word) => word + " " + reversedStr,
+    ""
+  );
 
-  return reversedWords;
+  return reversedWords + firstWord;
 };
 
 // console.log(reverseWords(["hello", "world", "hola"]));
 
 // joinWordsWithSpace(["apple", "banana", "cherry"]) => "apple banana cherry"
 const joinWordsWithSpace = function (words) {
-  const spaceSeparatedWords = words.reduce(
-    (spaceJoinedWords, word) => spaceJoinedWords + " " + word, "");
+  const [firstWord, ...restWords] = words;
+  const spaceSeparatedWords = restWords.reduce(
+    (spaceJoinedWords, word) => spaceJoinedWords + " " + word,
+    ""
+  );
 
-  return spaceSeparatedWords.trimLeft();
+  return firstWord + spaceSeparatedWords;
 };
 
 // console.log(joinWordsWithSpace(["apple", "banana", "cherry"]));
@@ -181,12 +192,12 @@ const extractVowelsInWords = function (words) {
   return words.reduce(extractVowels, "");
 };
 
-console.log(extractVowelsInWords(["hello", "world"]));
+// console.log(extractVowelsInWords(["hello", "world"]));
 
 // makeCamelCase(["hello", "world", "how", "are", "you"]) => "helloWorldHowAreYou"
-const makeCamelCase = function (words) { };
+const makeCamelCase = function (words) {};
 
 // reverseString(["apple", "banana", "cherry"]) => "elppaananabyrrehc"
-const reverseString = function (words) { };
+const reverseString = function (words) {};
 
 // ============================== 20 Qs =====================================//

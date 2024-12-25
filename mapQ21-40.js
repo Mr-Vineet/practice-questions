@@ -37,7 +37,12 @@ const flattenedArraysOf = function (arrays) {
   return arrays.map(removeNesting);
 };
 
-console.log(flattenedArraysOf([[1, [2, 3]], [4, [5, 6]]]));
+console.log(
+  flattenedArraysOf([
+    [1, [2, 3]],
+    [4, [5, 6]],
+  ])
+);
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
 const sort = function (word) {
@@ -103,7 +108,12 @@ const calculateAreas = function (rectangles) {
   return rectangles.map(findArea);
 };
 
-console.log(calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]));
+console.log(
+  calculateAreas([
+    { width: 2, height: 3 },
+    { width: 4, height: 5 },
+  ])
+);
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
 
@@ -118,36 +128,46 @@ const extractFlags = function (objects) {
 console.log(extractFlags([{ active: true }, { active: false }]));
 
 //============================= 30 Qs =======================================//
+const display = console.log;
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
-const fullNames = function (objects) { };
 
+const fullNames = function (objects) {
+  return objects.map((object) => object.firstName + " " + object.lastName);
+};
+
+display(
+  fullNames([
+    { firstName: "Alice", lastName: "Smith" },
+    { firstName: "Bob", lastName: "Brown" },
+  ])
+);
 // calculate total prices from [{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }] => [20, 20]
 // (price * quantity)
-const totalPrices = function (objects) { };
+const totalPrices = function (objects) {};
 
 // determine if a person is an adult from [{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }] => [false, true]
 // (age >= 18)
-const isAdult = function (objects) { };
+const isAdult = function (objects) {};
 
 // create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
-const abbreviations = function (objects) { };
+const abbreviations = function (objects) {};
 
 // extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
-const mathScores = function (objects) { };
+const mathScores = function (objects) {};
 
 // extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
-const extractCoordinates = function (objects) { };
+const extractCoordinates = function (objects) {};
 
 // extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
-const fullNameAndAge = function (objects) { };
+const fullNameAndAge = function (objects) {};
 
 // extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
-const extractScores = function (objects) { };
+const extractScores = function (objects) {};
 
 // extract key-value pairs from [{ key: "a", value: 1 }, { key: "b", value: 2 }] => [["a", 1], ["b", 2]]
-const keyValuePairs = function (objects) { };
+const keyValuePairs = function (objects) {};
 
 // split full names into first and last names from [{ name: "Alice Smith" }, { name: "Bob Brown" }] => [["Alice", "Smith"], ["Bob", "Brown"]]
-const splitFullNames = function (objects) { };
+const splitFullNames = function (objects) {};
 
 //============================= 40 Qs =======================================//
