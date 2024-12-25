@@ -131,15 +131,21 @@ const shortestWord = function (words) {
 
 // joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
 const joinWithComma = function (words) {
-  // return words.reduce((joinedWord, word) => joinedWord + "," + word, "");
+  const [firstWord, ...restWords] = words;
+  const joinedWithComma = restWords.reduce(
+    (joinedWord, word) => joinedWord + "," + word,
+    ""
+  );
+
+  return firstWord + joinedWithComma;
 };
 
 // console.log(joinWithComma(["apple", "banana", "cherry"]));
 
 // reverseWords(["hello", "world"]) => "world hello";
 const reverseWords = function (words) {
-  const [firstWord, ...rest] = words;
-  const reversedWords = rest.reduce(
+  const [firstWord, ...restWords] = words;
+  const reversedWords = restWords.reduce(
     (reversedStr, word) => word + " " + reversedStr,
     ""
   );
@@ -195,8 +201,21 @@ const extractVowelsInWords = function (words) {
 // console.log(extractVowelsInWords(["hello", "world"]));
 
 // makeCamelCase(["hello", "world", "how", "are", "you"]) => "helloWorldHowAreYou"
-const makeCamelCase = function (words) {};
+const display = console.log;
 
+const capitalizeFirstChar = function ([...word]) {
+  const [firstChar, ...otherChars] = word;
+
+  return firstChar.toUpperCase().concat(otherChars.join(""));
+};
+
+const makeCamelCase = function (words) {
+  return words.reduce((camelCaseStr, word) =>
+    camelCaseStr.concat(capitalizeFirstChar(word))
+  );
+};
+
+display(makeCamelCase(["hello", "world", "how", "are", "you"]));
 // reverseString(["apple", "banana", "cherry"]) => "elppaananabyrrehc"
 const reverseString = function (words) {};
 

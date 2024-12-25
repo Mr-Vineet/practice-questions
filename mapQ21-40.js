@@ -8,7 +8,7 @@ const stringMap = function (string, mapper) {
 const uppercaseFirstLetter = function ([...word]) {
   const [firstChar, ...otherChars] = word;
 
-  return firstChar.toUpperCase() + otherChars.join("");
+  return firstChar.toUpperCase().concat(otherChars.join(""));
 };
 
 const captalizeFirstLetter = function (string) {
