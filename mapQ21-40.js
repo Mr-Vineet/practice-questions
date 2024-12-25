@@ -201,11 +201,30 @@ display(
 );
 
 // extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
-const fullNameAndAge = function (objects) {};
+const fullNameAndAge = function (objects) {
+  return objects.map((person) => [
+    person.firstName + " " + person.lastName,
+    person.age,
+  ]);
+};
 
+display(
+  fullNameAndAge([
+    { firstName: "Alice", lastName: "Smith", age: 25 },
+    { firstName: "Bob", lastName: "Brown", age: 30 },
+  ])
+);
 // extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
-const extractScores = function (objects) {};
+const extractScores = function (objects) {
+  return objects.map(({ scores }) => [scores.math, scores.english]);
+};
 
+display(
+  extractScores([
+    { name: "Alice", scores: { math: 90, english: 85 } },
+    { name: "Bob", scores: { math: 80, english: 75 } },
+  ])
+);
 // extract key-value pairs from [{ key: "a", value: 1 }, { key: "b", value: 2 }] => [["a", 1], ["b", 2]]
 const keyValuePairs = function (objects) {};
 
