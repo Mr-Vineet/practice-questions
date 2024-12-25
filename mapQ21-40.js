@@ -1,3 +1,9 @@
+const stringMap = function (string, mapper) {
+  return string.split("").map(mapper).join("");
+};
+
+// -------------------------------------------------------------------------
+
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
 const uppercaseFirstLetter = function (word) {
   return word.at(0).toUpperCase().concat(word.slice(1));
@@ -67,34 +73,22 @@ const wrappedStringsOf = function (strings) {
 // console.log(wrappedStringsOf(["apple", "banana"]));
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
-const acquireName = function (object) {
-  return object.name;
-};
-
 const extractNames = function (objects) {
-  return objects.map(acquireName);
+  return objects.map((object) => object.name);
 };
 
 // console.log(extractNames([{ name: "Alice" }, { name: "Bob" }]));
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
-const acquireAge = function (object) {
-  return object.age;
-};
-
 const extractAges = function (objects) {
-  return objects.map(acquireAge);
+  return objects.map((object) => object.age);
 };
 
 // console.log(extractAges([{ age: 25 }, { age: 30 }]));
 
 // extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
-const extractInitial = function (object) {
-  return object.name.at(0);
-};
-
 const firstLettersOfNames = function (objects) {
-  return objects.map(extractInitial);
+  return objects.map((object) => object.name.at(0));
 };
 
 // console.log(firstLettersOfNames([{ name: "Alice" }, { name: "Bob" }]));
@@ -151,10 +145,36 @@ display(
 
 // determine if a person is an adult from [{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }] => [false, true]
 // (age >= 18)
-const isAdult = function (objects) {};
+const isAdult = function (objects) {
+  return objects.map((person) => person.age >= 18);
+};
 
+display(
+  isAdult([
+    { name: "Alice", age: 17 },
+    { name: "Bob", age: 22 },
+  ])
+);
 // create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
-const abbreviations = function (objects) {};
+const createAcronym = function ({ city, country }) {
+  const acronymOfCity = city
+    .split(" ")
+    .map((word) => word.at(0))
+    .join("");
+
+  return acronymOfCity + ", " + country;
+};
+
+const abbreviations = function (objects) {
+  return objects.map(createAcronym);
+};
+
+display(
+  abbreviations([
+    { city: "New York", country: "USA" },
+    { city: "Los Angeles", country: "USA" },
+  ])
+);
 
 // extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
 const mathScores = function (objects) {};
