@@ -122,12 +122,19 @@ const longestWord = function (words) {
 
 // shortestWord(["apple", "banana", "cherry", "kiwi"]) => "kiwi"
 const shortestWord = function (words) {
+  if (words.length === 0) {
+    return "";
+  }
+
   return words.reduce((shortest, word) =>
     shortest.length > word.length ? word : shortest
   );
 };
 
-// console.log(shortestWord(["apple", "banana", "cherry", "kiwi"]));
+console.log(
+  "shortest word ",
+  shortestWord(["apple", "banana", "cherry", "kiwi"])
+);
 
 // joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
 const joinWithComma = function (words) {
@@ -210,13 +217,24 @@ const capitalizeFirstChar = function ([...word]) {
 };
 
 const makeCamelCase = function (words) {
-  return words.reduce((camelCaseStr, word) =>
-    camelCaseStr.concat(capitalizeFirstChar(word))
+  return words.reduce(
+    (camelCaseStr, word) => camelCaseStr.concat(capitalizeFirstChar(word)),
+    ""
   );
 };
 
 display(makeCamelCase(["hello", "world", "how", "are", "you"]));
 // reverseString(["apple", "banana", "cherry"]) => "elppaananabyrrehc"
-const reverseString = function (words) {};
+const reverseWord = function ([...word]) {
+  return word.reverse().join("");
+};
 
+const reverseString = function (words) {
+  return words.reduce(
+    (reversedStr, word) => reversedStr.concat(reverseWord(word)),
+    ""
+  );
+};
+
+display(reverseString(["apple", "banana", "cherry"]));
 // ============================== 20 Qs =====================================//
