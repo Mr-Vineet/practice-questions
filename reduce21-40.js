@@ -44,12 +44,21 @@ const uniqueNumbers = function (numbers) {
 };
 
 display(uniqueNumbers([1, 2, 2, 3, 4, 4, 5]));
-// groupByLength(["apple", "banana", "cherry", "date"]) => { 5: ["apple", "cherry"], 6: ["banana"], 4: ["date"] }
+// groupByLength(["apple", "banana", "cherry", "date"]) => { 5: ["apple"], 6: ["banana", "cherry" ], 4: ["date"] }
 const groupByLength = function (strings) {
-  // return strings.reduce((string) => )
+  return strings.reduce(function (group, string) {
+    if (!(string.length in group)) {
+      group[string.length] = [];
+    }
+
+    group[string.length].push(string);
+
+    return group;
+  }, {});
 };
 
 display(groupByLength(["apple", "banana", "cherry", "date"]));
+// display(groupByLength(["apple", "banana", "cherry", "date"]));
 // countOccurrences(["apple", "banana", "cherry", "banana"]) => { apple: 1, banana: 2, cherry: 1 }
 const countOccurrences = function (strings) {};
 
@@ -138,13 +147,18 @@ const nestedAverage = function (nestedNumbers) {};
 const cartesianProduct = function (arr1, arr2) {};
 
 // groupByDate([{ date: '2024-01-01', value: 10 }, { date: '2024-01-01', value: 20 }, { date: '2024-01-02', value: 30 }]) => { '2024-01-01': [10, 20], '2024-01-02': [30] }
-const groupByDate = function (records) {
-  return records.reduce(function (sortByDate, { date, value }) {
-    sortByDate[date] =
-      date in sortByDate ? [...sortByDate[date], value] : [value];
+const organizeByDate = function (group, { date, value }) {
+  if (!(date in group)) {
+    group[date] = [];
+  }
 
-    return sortByDate;
-  }, {});
+  group[date].push(value);
+
+  return group;
+};
+
+const groupByDate = function (records) {
+  return records.reduce(organizeByDate, {});
 };
 
 display(
@@ -161,6 +175,7 @@ const findMinMax = function (numbers) {
 
   return { min, max };
 };
+
 display(findMinMax([1, 2, 3, 4, 5]));
 
 // sumByCategory([{ category: 'A', value: 10 }, { category: 'B', value: 20 }, { category: 'A', value: 30 }]) => { A: 40, B: 20 }
